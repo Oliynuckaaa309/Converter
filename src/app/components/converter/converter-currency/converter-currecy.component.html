@@ -1,0 +1,31 @@
+<main>
+    <div class="main-wrap-2">
+        <div class="inner-content">
+            <div class="first-form">
+                <mat-form-field class="mat-form-field-1" appearance="outline">
+                    <input class="mat-input-element" id="input1"(input)="doExchange($event)" matInput placeholder="Enter amount ..." [(ngModel)]="inputValue1">
+                </mat-form-field>
+                <mat-form-field class="mat-form-field">
+                    <select (change)="doExchange($event)" [formControl]="controlForFirstInput" matNativeControl id="mySelectId1" [(ngModel)]="selectedCurrencyFirst" >
+                        <option value={{currency}}  *ngFor="let currency of currencies" >{{currency | uppercase}}</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="first-form">
+                <mat-form-field class="mat-form-field-1" appearance="outline">
+                    <input class="mat-input-element" (input)="doExchange($event)" id="input2" matInput placeholder="result..." [(ngModel)]="inputValue2">
+                </mat-form-field>
+                <mat-form-field class="mat-form-field">
+                    <select (change)="doExchange($event)" [formControl]="controlForSecondInput" matNativeControl id="mySelectId2"  [(ngModel)]="selectedCurrencySecond">
+                        <option value={{currency}} *ngFor="let currency of currencies" >{{currency | uppercase}}</option>
+                    </select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="btn-calc">
+            <button (click)="resetAll()" mat-raised-button color="primary" class="reset-button">
+             <p>Reset All</p> 
+            </button>
+          </div>
+    </div>
+</main>

@@ -1,0 +1,65 @@
+.main-wrap-2 {
+    max-width: 1200px;
+    margin: auto;
+    height: 300px;
+}
+
+.inner-content {
+    padding-top: 70px;
+}
+
+.mat-form-field-1 {
+    width: 82%;
+    height: 70px;
+    color: rgb(181, 180, 180);
+}
+
+.mat-form-field {
+    height: 60px;
+    color: white;
+    width: 15%;
+    color: rgb(181, 180, 180);
+}
+
+.mat-input-element {
+    padding: 20px;
+
+}
+
+#mySelectId1,
+#mySelectId2 {
+    background-color: black;
+}
+
+
+.button-text {
+    margin: 0 10px;
+    color: white;
+}
+
+.first-form {
+    width: 100%;
+    margin: auto;
+
+}
+
+.reset-button {
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    margin: 0 10px;
+    width: 15%;
+}
+
+.reset-button:hover {
+    background-color: #333;
+}
+
+p {
+    color: white;
+    font-size: Legend;
+}
+
+.btn-calc {
+    margin: 30px -10px;
+}
