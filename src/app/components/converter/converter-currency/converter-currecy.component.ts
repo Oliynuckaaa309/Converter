@@ -31,30 +31,30 @@ export class ConverterCurrencyComponent implements OnInit {
   ngOnInit(): void {
     this.ApiServise.getRates().subscribe((data) => {
       this.uahExchangeRate = data.uah;
+      this.currencies.forEach((fromCurrency) => {
+        this.currencies.forEach((toCurrency) => {
+          if (fromCurrency === toCurrency) {
+            this.exchangeRates.set(fromCurrency + '|' + toCurrency, 1);
+          }
+          else if (fromCurrency === 'uah') {
+            this.exchangeRates.set(fromCurrency + '|' + toCurrency, this.uahExchangeRate[toCurrency]);
 
-    })
+          }
+          else if (toCurrency === 'uah') {
+            this.exchangeRates.set(fromCurrency + '|' + toCurrency, 1 / this.uahExchangeRate[fromCurrency]);
 
-    this.currencies.forEach((fromCurrency) => {
-      this.currencies.forEach((toCurrency) => {
-        if (fromCurrency === toCurrency) {
-          this.exchangeRates.set(fromCurrency + '|' + toCurrency, 1);
-        }
-        else if (fromCurrency === 'uah') {
-          this.exchangeRates.set(fromCurrency + '|' + toCurrency, this.uahExchangeRate[toCurrency]);
+          }
+          else if (fromCurrency !== 'uah' && toCurrency !== 'uah') {
+            let crossExchangeRate = 1 / (this.uahExchangeRate[fromCurrency] / this.uahExchangeRate[toCurrency]);
+            this.exchangeRates.set(fromCurrency + '|' + toCurrency, crossExchangeRate);
+          }
 
-        }
-        else if (toCurrency === 'uah') {
-          this.exchangeRates.set(fromCurrency + '|' + toCurrency, 1 / this.uahExchangeRate[fromCurrency]);
-
-        }
-        else if (fromCurrency !== 'uah' && toCurrency !== 'uah') {
-          let crossExchangeRate = 1 / (this.uahExchangeRate[fromCurrency] / this.uahExchangeRate[toCurrency]);
-          this.exchangeRates.set(fromCurrency + '|' + toCurrency, crossExchangeRate);
-        }
+        })
 
       })
-
     })
+
+
   }
   resetAll() {
     this.inputValue1 = '';
@@ -78,10 +78,10 @@ export class ConverterCurrencyComponent implements OnInit {
       }
       this.inputValue1 = +this.inputValue2 * this.exchangeRates.get(this.selectedCurrencySecond.toLowerCase() + '|' + this.selectedCurrencyFirst.toLowerCase())!
     }
-    if(this.inputValue1===0){
-      this.inputValue2=0
+    if (this.inputValue1 === 0) {
+      this.inputValue2 = 0
     }
-   
+
   }
- 
+
 }

@@ -10,19 +10,16 @@ import { DecimalPipe } from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  public rates: any;
-  public eur!:number;
-  public usd!:number;
+  public eur = 0;
+  public usd = 0;
   constructor(private ApiServise: ApiService) { }
   ngOnInit() {
     this.getExchangeRates();
-    this.eur=1/(this.rates.eur);
-    this.usd=1/(this.rates.usd);
   }
   getExchangeRates(): void {
     this.ApiServise.getRates().subscribe((data: any) => {
-      this.rates = data.uah;
+    this.eur=1/(data.uah.eur);
+    this.usd=1/(data.uah.usd);
     })
-
   }
 }
