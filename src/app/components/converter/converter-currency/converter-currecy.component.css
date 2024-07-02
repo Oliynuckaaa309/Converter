@@ -1,11 +1,11 @@
 .main-wrap-2 {
-    max-width: 1200px;
-    margin: auto;
-    height: 300px;
+  max-width: 1200px;
+  margin: auto;
+  height: 300px;
 }
 
 .inner-content {
-    padding-top: 70px;
+  padding-top: 70px;
 }
 
 .mat-form-field-1 {
@@ -16,50 +16,60 @@
 
 .mat-form-field {
     height: 60px;
-    color: white;
     width: 15%;
-    color: rgb(181, 180, 180);
 }
 
 .mat-input-element {
-    padding: 20px;
+  color: white;
+ }
 
+.mat-form-field-1 .mat-input-element {
+  color: white;
+}
+
+.mat-form-field-1 .mat-input-element::placeholder {
+  color: gray;
 }
 
 #mySelectId1,
 #mySelectId2 {
-    background-color: black;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding-left: 10px;
 }
+
 
 
 .button-text {
-    margin: 0 10px;
-    color: white;
+  margin: 0 10px;
+  color: white;
 }
 
 .first-form {
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 
 }
 
 .reset-button {
-    color: white;
-    background-color: black;
-    border: 2px solid white;
-    margin: 0 10px;
-    width: 15%;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+  margin:20px 10px;
+  width: 15%;
 }
 
 .reset-button:hover {
-    background-color: #333;
+  background-color: #333;
 }
 
 p {
-    color: white;
-    font-size: Legend;
+  color: white;
+  font-size: Legend;
 }
 
 .btn-calc {
-    margin: 30px -10px;
+  margin: 0px -10px;
 }
