@@ -1,30 +1,29 @@
-.main-wrap{
-    max-width: 1200px;
-    margin: 0 auto;
-    color: white;
-    
+.main-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
 }
-.title{
-    font-family: Lexend;
-    font-size: 35px;
+.title {
+  font-family: Lexend;
+  font-size: 35px;
 }
-.rate-tile{
-    font-family: Lexend;
-    font-size: 18px;
+.rate-tile {
+  font-family: Lexend;
+  font-size: 18px;
 }
-.exchange-rate{
-    display: flex;
+.exchange-rate {
+  display: flex;
 }
-.for-usd,.for-eur{
-    font-size: 18px;
+.for-usd, .for-eur {
+  font-size: 18px;
 }
-.for-eur{
-    margin-top: 10px;
+.for-eur {
+  margin-top: 10px;
 }
-.detailed-currency{
-    color: gray;
-    font-size: 16px;
+.detailed-currency {
+  color: gray;
+  font-size: 16px;
 }
-.currency{
+.currency {
   margin: -10px 15px;
 }

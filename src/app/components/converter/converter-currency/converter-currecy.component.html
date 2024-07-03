@@ -1,27 +1,52 @@
 <main>
-    <div class="main-wrap-2">
-        <div class="inner-content">
-            <div class="first-form">
-                <mat-form-field class="mat-form-field-1" appearance="outline">
-                    <input type="number" class="mat-input-element" id="input1" (input)="doExchange($event)" matInput placeholder="Enter amount ..." [(ngModel)]="inputValue1">
-                </mat-form-field>
-                    <select (change)="doExchange($event)" [formControl]="controlForFirstInput"  id="mySelectId1" [(ngModel)]="selectedCurrencyFirst" >
-                        <option value={{currency}}  *ngFor="let currency of currencies" >{{currency | uppercase}}</option>
-                    </select>
-            </div>
-            <div class="first-form">
-                <mat-form-field class="mat-form-field-1" appearance="outline">
-                    <input  type="number" class="mat-input-element" (input)="doExchange($event)" id="input2" matInput placeholder="result..." [(ngModel)]="inputValue2">
-                </mat-form-field>
-                    <select (change)="doExchange($event)" [formControl]="controlForSecondInput"  id="mySelectId2"  [(ngModel)]="selectedCurrencySecond">
-                        <option value={{currency}} *ngFor="let currency of currencies" >{{currency | uppercase}}</option>
-                    </select>
-            </div>
-        </div>
-        <div class="btn-calc">
-            <button (click)="resetAll()" mat-raised-button color="primary" class="reset-button">
-             <p>Reset All</p>
-            </button>
-          </div>
+  <div class="main-wrap-2">
+    <div class="inner-content">
+      <div class="first-form">
+        <form [formGroup]="form1">
+          <mat-form-field class="mat-form-field-1" appearance="outline">
+            <input
+              class="mat-input-element"
+              id="input1"
+              formControlName="inputValue1"
+              (input)="doExchange($event)"
+              type="number"
+              matInput
+              placeholder="Enter amount ...">
+          </mat-form-field>
+          <select (change)="doExchange($event)"
+                  id="mySelectId1"
+                  formControlName="selectedCurrencyFirst">
+            <option value={{currency}}
+                    *ngFor="let currency of currencies">{{ currency | uppercase }}
+            </option>
+          </select>
+          <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+        </form>
+      </div>
+      <div class="first-form">
+        <form [formGroup]="form2">
+          <mat-form-field class="mat-form-field-1" appearance="outline">
+            <input type="number"
+                   class="mat-input-element"
+                   (input)="doExchange($event)"
+                   id="input2" matInput
+                   placeholder="result..."
+                   formControlName="inputValue2">
+          </mat-form-field>
+          <select (change)="doExchange($event)"
+                  id="mySelectId2"
+                  formControlName="selectedCurrencySecond">
+            <option value={{currency}}
+                    *ngFor="let currency of currencies">{{ currency | uppercase }}
+            </option>
+          </select>
+        </form>
+      </div>
     </div>
+    <div class="btn-calc">
+      <button (click)="resetAll()" mat-raised-button color="primary" class="reset-button">
+        <p>Reset All</p>
+      </button>
+    </div>
+  </div>
 </main>
